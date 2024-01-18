@@ -1,8 +1,8 @@
 const Information = () => {
   return (
-    <div style={{ backgroundColor: "lightblue" }}>
+    <div>
       <div style={{ marginTop: 15, marginBottom: 15 }}>
-        <h4> TYPES OF OVERTIME</h4>
+        <h5> TYPES OF OVERTIME</h5>
       </div>
       <div>
         <span>

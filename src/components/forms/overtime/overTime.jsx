@@ -23,10 +23,7 @@ const OverTime = () => {
               completed
             </p>
           </div>
-          <div
-            className="input-group "
-            style={{ height: 150, width: 600, backgroundColor: "lightblue" }}
-          >
+          <div className="input-group " style={{ height: 150, width: 600 }}>
             <div className="input-group">
               <div style={{ marginRight: 50 }}>
                 <Input name="Name" style={{ width: 200 }} />
@@ -54,15 +51,31 @@ const OverTime = () => {
             <Information />
           </div>
 
-          <div style={{ backgroundColor: "lightblue" }}>
-            <h6>JUSTIFICATION</h6>
+          <div>
+            <h6>
+              JUSTIFICATION{" "}
+              <i
+                className="cog-asterisk"
+                style={{ fontSize: 15, color: "darkred" }}
+                aria-hidden="true"
+              >
+                *
+              </i>
+            </h6>
             <textarea
               value={reason}
               onChange={(e) => setReason(e.target.value)}
               style={{ width: 600, height: 60 }}
             ></textarea>
           </div>
-          <div>
+          <div style={{ marginTop: 5 }}>
+            <h5>OVERTIME HOURS</h5>
+            <p style={{ fontSize: 11.5, color: "red" }}>
+              Enter time in a 24 hr format. Midnight equals 0000 during Start
+              Time and 2400 during End Time
+            </p>
+          </div>
+          <div style={{ marginTop: 20, width: 630 }}>
             <DateTable />
           </div>
           <div>
