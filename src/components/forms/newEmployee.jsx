@@ -4,11 +4,10 @@ import UserSchema from "../schemas/directorySchema";
 import Input from "../common/input";
 
 const NewEmployee = () => {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState();
   const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
-    formik.values = "";
     console.log("reset");
   }, [completed]);
 
@@ -26,12 +25,10 @@ const NewEmployee = () => {
       console.log("New User Created");
       setCompleted(true);
       console.log(userInfo);
-      console.log(completed);
     },
   });
 
-  const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
-    formik;
+  const { handleChange, handleBlur, values, touched, errors } = formik;
 
   return (
     <div
@@ -41,7 +38,7 @@ const NewEmployee = () => {
       <div>
         <form onSubmit={formik.handleSubmit}>
           <div style={{ width: 250, height: 500 }}>
-            <div>{completed && <h5>Form is Submitted</h5>}</div>
+            <div>{completed && <h5>New User Created</h5>}</div>
             <Input
               id="name"
               name="Full Name"

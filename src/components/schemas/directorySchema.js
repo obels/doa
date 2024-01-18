@@ -9,7 +9,9 @@ const UserSchema = Yup.object().shape({
     .matches(phoneRegExp, "Enter a Valid Phone Number")
     .min(8)
     .required("Phone Number is Required"),
-  id: Yup.string().required("Employee ID is Required"),
+  id: Yup.number()
+    .typeError("Employee ID Must be a Number")
+    .required("Employee ID is Required"),
   email: Yup.string().email().required("Email is required"),
 });
 
