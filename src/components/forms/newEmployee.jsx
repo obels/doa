@@ -32,9 +32,10 @@ const NewEmployee = () => {
 
   return (
     <div
-      className="container-sm m-1"
+      className="container"
       style={{ width: 400, height: 700, backgroundColor: "lightgray" }}
     >
+      <h5 style={{ textAlign: "center" }}>New Employee Form</h5>
       <div>
         <form onSubmit={formik.handleSubmit}>
           <div style={{ width: 250, height: 500 }}>

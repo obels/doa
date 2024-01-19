@@ -102,13 +102,14 @@ export default class Directory extends Component {
     const { pageSize, currentPage, searchValue } = this.state;
 
     return (
-      <div className="container-sm m-1" style={{}}>
+      <div className="container" style={{ textAlign: "center" }}>
         {this.state.errors && (
           <div style={{ color: "red", marginBottom: 10 }}>
             "Unable to Retrive Data Due to a {this.state.errors}"
           </div>
         )}
-        <div>
+        <h5>Employee Directory</h5>
+        <div style={{ textAlign: "left" }}>
           <h5>Current Active Users {sortCount.length} </h5>
           <span>
             <SearchBar onChange={this.handleSearch} value={searchValue} />

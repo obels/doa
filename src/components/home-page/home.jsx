@@ -9,11 +9,29 @@ function Home(props) {
 
   return (
     <Fragment>
-      <h2>Website in Progress</h2>
-      <div>
-        <ul>
-          <Link to="/forms/overtime">Employee Overtime Form</Link>
-        </ul>
+      <div
+        className="container"
+        style={{
+          height: 1500,
+          width: 1500,
+          textAlign: "center",
+          backgroundColor: "lightblue",
+        }}
+      >
+        <h5>Welcome to Clark County Employee Website</h5>
+        <div
+          className="sidebar"
+          style={{ height: 700, width: 350, backgroundColor: "lightgray" }}
+        >
+          <div style={{ textAlign: "left" }}>
+            <h5> Employee Forms</h5>
+            <ul>
+              <Link to="/forms/overtime">Employee Overtime Form</Link>
+            </ul>
+          </div>
+        </div>
+
+        <div></div>
       </div>
     </Fragment>
   );

@@ -19,7 +19,7 @@ const LoginForm = () => {
   console.log(formik.touched);
 
   return (
-    <div className="container sm m-1" style={{ width: 350 }}>
+    <div className="container" style={{ width: 350 }}>
       <form
         className="row g-3 "
         style={{ tableLayout: "fixed" }}

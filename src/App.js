@@ -17,6 +17,7 @@ function App() {
       <NavBar />
       <div className="content">
         <Routes>
+          <Route path="/doa" element={<Home />} />
           <Route path="/notFound" element={<NotFound />} />
           <Route path="/home" element={<Home />} />
           <Route path="/forms/overtime" element={<OverTime />} />
