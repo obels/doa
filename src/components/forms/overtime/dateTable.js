@@ -8,8 +8,6 @@ const DateTable = () => {
   const [endTime, setEndTime] = useState();
   const [totalHours, setTotalHours] = useState();
 
-  console.log(tableHeader);
-  console.log(date);
   return (
     <div>
       <table className="table-border">
@@ -57,7 +55,8 @@ const DateTable = () => {
             </td>
             <td>
               <input
-                value={(endTime - startTime) / 100 || ""}
+                defaultValue={(endTime - startTime) / 100 || ""}
+                readOnly
                 style={{ width: 50 }}
                 placeholder="Hours"
                 type="text"

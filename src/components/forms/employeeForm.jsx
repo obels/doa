@@ -60,7 +60,7 @@ const EmployeeForm = (props) => {
           name="Name"
           onChange={handleChange}
           value={values.name || ""}
-          touched={touched.name}
+          onTouch={touched.name}
           error={errors.name}
           onBlur={handleBlur}
         />
@@ -69,7 +69,7 @@ const EmployeeForm = (props) => {
           name="Phone"
           onChange={handleChange}
           value={values.phone || ""}
-          touched={touched.phone}
+          onTouch={touched.phone}
           error={errors.phone}
           onBlur={handleBlur}
         />
@@ -78,7 +78,7 @@ const EmployeeForm = (props) => {
           name="Email"
           onChange={handleChange}
           value={values.email || ""}
-          touched={touched.email}
+          onTouch={touched.email}
           error={errors.email}
           onBlur={handleBlur}
         />
@@ -87,7 +87,7 @@ const EmployeeForm = (props) => {
           name="Employee ID"
           onChange={handleChange}
           value={values.id || ""}
-          touched={touched.id}
+          onTouch={touched.id}
           error={errors.id}
           onBlur={handleBlur}
         />

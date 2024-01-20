@@ -16,32 +16,33 @@ const LoginForm = () => {
     },
   });
 
-  console.log(formik.touched);
+  const { handleSubmit, touched, values, handleChange, handleBlur, errors } =
+    formik;
 
   return (
     <div className="container" style={{ width: 350 }}>
       <form
         className="row g-3 "
         style={{ tableLayout: "fixed" }}
-        onSubmit={formik.handleSubmit}
+        onSubmit={handleSubmit}
       >
         <Input
           id="username"
-          value={formik.values.username}
-          onChange={formik.handleChange}
+          value={values.username}
+          onChange={handleChange}
           name="Username"
-          error={formik.errors.username}
-          onBlur={formik.handleBlur}
-          touched={formik.touched.username}
+          error={errors.username}
+          onBlur={handleBlur}
+          onTouch={touched.username}
         />
         <Input
           id="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
+          value={values.password}
+          onChange={handleChange}
           name="Password"
-          error={formik.errors.password}
-          onBlur={formik.handleBlur}
-          touched={formik.touched.password}
+          error={errors.password}
+          onBlur={handleBlur}
+          onTouch={touched.password}
         />
         <button
           type="submit"

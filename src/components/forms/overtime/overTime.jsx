@@ -3,15 +3,49 @@ import Input from "../../common/input";
 import Calendar from "../../common/calendar";
 import Information from "./informationText";
 import DateTable from "./dateTable";
+import { useFormik } from "formik";
+import OverTimeSchema from "../../schemas/overTimeSchema";
+import ReqFieldIcon from "../../common/reqFieldIcon";
+import ReqFieldMsg from "../../common/reqFieldMsg";
 
 const OverTime = () => {
   const [payP, setPayP] = useState();
-  const [reason, setReason] = useState();
-  useEffect(() => {}, []);
 
+  useEffect(() => {
+    setFieldValue("payPeriod", payP);
+  }, [payP]);
+
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      employeeNumber: "",
+      payPeriod: "",
+      email: "",
+      reason: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+      totalHours: "",
+    },
+    validationSchema: OverTimeSchema,
+    onSubmit: () => {
+      console.log("Form Submitted");
+    },
+  });
+
+  const {
+    setFieldValue,
+    values,
+    handleChange,
+    errors,
+    handleSubmit,
+    touched,
+    handleBlur,
+  } = formik;
+  console.log(formik);
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div
           className="container sm"
           style={{ height: 1000, width: 650, backgroundColor: "#f2f2f2" }}
@@ -25,48 +59,86 @@ const OverTime = () => {
           </div>
           <div className="input-group " style={{ height: 150, width: 600 }}>
             <div className="input-group">
-              <div style={{ marginRight: 50 }}>
-                <Input name="Name" style={{ width: 200 }} />
+              <div
+                style={{
+                  width: 200,
+                  height: 90,
+                  marginRight: 50,
+                }}
+              >
+                <Input
+                  id="name"
+                  name="Name"
+                  value={values.name || ""}
+                  onChange={handleChange}
+                  error={errors.name}
+                  onBlur={handleBlur}
+                  onTouch={touched.name}
+                  style={{ width: 200 }}
+                />
               </div>
-              <Input name="Employee Number" style={{ width: 200 }} />
+              <div style={{ height: 90, width: 200 }}>
+                <Input
+                  id="employeeNumber"
+                  name="Employee Number"
+                  value={values.employeeNumber || ""}
+                  onChange={handleChange}
+                  error={errors.employeeNumber}
+                  onBlur={handleBlur}
+                  onTouch={touched.employeeNumber}
+                  style={{ width: 200 }}
+                />
+              </div>
             </div>
             <div className="input-group">
-              <div style={{ marginRight: 50 }}>
-                <div style={{ marginTop: 10, marginBottom: 5 }}>
+              <div
+                style={{
+                  width: 200,
+                  height: 90,
+                  marginRight: 50,
+                }}
+              >
+                <div>
                   <Calendar
+                    id="payPeriod"
                     label="PPE"
-                    selected={payP}
+                    selected={payP || ""}
                     onChange={(e) => setPayP(e)}
+                    error={errors.payPeriod}
+                    onBlur={handleBlur}
+                    onTouch={touched.payPeriod}
                   />
                 </div>
               </div>
-              <Input
-                labelstyle={{ marginLeft: 11 }}
-                name="Email"
-                style={{ marginLeft: 11, width: 200 }}
-              />
+              <div style={{ height: 90, width: 200 }}>
+                <Input
+                  id="email"
+                  name="Email"
+                  value={values.email || ""}
+                  onChange={handleChange}
+                  error={errors.email}
+                  onBlur={handleBlur}
+                  onTouch={touched.email}
+                  style={{ width: 200 }}
+                />
+              </div>
             </div>
           </div>
-          <div>
+          <div style={{ marginTop: 50 }}>
             <Information />
           </div>
 
           <div>
             <h6>
-              JUSTIFICATION{" "}
-              <i
-                className="cog-asterisk"
-                style={{ fontSize: 15, color: "darkred" }}
-                aria-hidden="true"
-              >
-                *
-              </i>
+              JUSTIFICATION <ReqFieldIcon />
             </h6>
             <textarea
-              value={reason}
-              onChange={(e) => setReason(e.target.value)}
+              id="reason"
+              value={values.reason}
+              onChange={handleChange}
               style={{ width: 600, height: 60 }}
             ></textarea>
+            <ReqFieldMsg error={errors.reason} onTouch={touched.reason} />
           </div>
           <div style={{ marginTop: 5 }}>
             <h5>OVERTIME HOURS</h5>

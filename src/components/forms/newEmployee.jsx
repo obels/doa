@@ -46,7 +46,7 @@ const NewEmployee = () => {
               value={values.name}
               onChange={handleChange}
               onBlur={handleBlur}
-              touched={touched.name}
+              onTouch={touched.name}
               error={errors.name}
             />
             <Input
@@ -55,7 +55,7 @@ const NewEmployee = () => {
               value={values.phone}
               onChange={handleChange}
               onBlur={handleBlur}
-              touched={touched.phone}
+              onTouch={touched.phone}
               error={errors.phone}
             />
             <Input
@@ -64,7 +64,7 @@ const NewEmployee = () => {
               value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
-              touched={touched.email}
+              onTouch={touched.email}
               error={errors.email}
             />
             <Input
@@ -73,7 +73,7 @@ const NewEmployee = () => {
               value={values.id}
               onChange={handleChange}
               onBlur={handleBlur}
-              touched={touched.id}
+              onTouch={touched.id}
               error={errors.id}
             />
             <div style={{ marginTop: 20 }}>

@@ -1,4 +1,5 @@
 import React from "react";
+import ReqFieldMsg from "./reqFieldMsg";
 
 const Input = ({
   onChange,
@@ -7,7 +8,7 @@ const Input = ({
   name,
   error,
   onBlur,
-  touched,
+  onTouch,
   style,
   labelstyle,
 }) => {
@@ -36,16 +37,7 @@ const Input = ({
         id={id}
         onBlur={onBlur}
       />
-      {error && touched && (
-        <div>
-          <p
-            style={{ height: 30, fontSize: 12 }}
-            className="alert alert-danger"
-          >
-            {error}
-          </p>
-        </div>
-      )}
+      <ReqFieldMsg error={error} onTouch={onTouch} />
     </div>
   );
 };
