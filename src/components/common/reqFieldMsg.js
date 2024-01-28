@@ -1,4 +1,5 @@
 const ReqFieldMsg = ({ error, onTouch }) => {
+  console.log(error);
   return (
     error &&
     onTouch && (

@@ -1,12 +1,9 @@
-import DatePicker from "react-datepicker";
 import { useState } from "react";
+import { useField, Field } from "formik";
 
-const DateTable = () => {
+const DateTable = (...props) => {
   const tableHeader = ["Date", "Start Time", "End Time", "Total Hours"];
-  const [date, setDate] = useState();
-  const [startTime, setStartTime] = useState();
-  const [endTime, setEndTime] = useState();
-  const [totalHours, setTotalHours] = useState();
+  const { value } = props[0].field;
 
   return (
     <div>
@@ -30,35 +27,23 @@ const DateTable = () => {
         <tbody>
           <tr>
             <td>
-              <DatePicker
-                selected={date}
-                onChange={(e) => setDate(e)}
-                placeholderText="Enter or Select Date"
-                isClearable
-              />
+              <Field name="date" type="date" placeholder="Enter Date" />
             </td>
             <td>
-              <input
-                type="text"
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}
+              <Field
+                type="time"
+                name="startTime"
                 placeholder="Enter Start Time"
               />
             </td>
             <td>
-              <input
-                type="text"
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}
-                placeholder="Enter End Time"
-              />
+              <Field type="time" name="endTime" placeholder="Enter End Time" />
             </td>
             <td>
-              <input
-                defaultValue={(endTime - startTime) / 100 || ""}
-                readOnly
+              <Field
+                name="totalHours"
                 style={{ width: 50 }}
-                placeholder="Hours"
+                placeholder="Enter Total Hours"
                 type="text"
               />
             </td>

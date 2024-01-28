@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Input from "../common/input";
-//import Select from "../common/select";//
 import { useFormik } from "formik";
 import UserSchema from "../schemas/directorySchema";
 import apiClient from "../../services/api-client";
-import { number } from "yup";
+import ReqFieldIcon from "../common/reqFieldIcon";
+import ReqFieldMsg from "../common/reqFieldMsg";
 
 const EmployeeForm = (props) => {
   const { id } = useParams("");
@@ -57,7 +56,7 @@ const EmployeeForm = (props) => {
       <form onSubmit={formik.handleSubmit}>
         <Input
           id="name"
-          name="Name"
+          label="Name"
           onChange={handleChange}
           value={values.name || ""}
           onTouch={touched.name}
@@ -66,7 +65,7 @@ const EmployeeForm = (props) => {
         />
         <Input
           id="phone"
-          name="Phone"
+          label="Phone"
           onChange={handleChange}
           value={values.phone || ""}
           onTouch={touched.phone}
@@ -75,7 +74,7 @@ const EmployeeForm = (props) => {
         />
         <Input
           id="email"
-          name="Email"
+          label="Email"
           onChange={handleChange}
           value={values.email || ""}
           onTouch={touched.email}
@@ -84,7 +83,7 @@ const EmployeeForm = (props) => {
         />
         <Input
           id="id"
-          name="Employee ID"
+          label="Employee ID"
           onChange={handleChange}
           value={values.id || ""}
           onTouch={touched.id}
@@ -101,6 +100,34 @@ const EmployeeForm = (props) => {
 };
 export default EmployeeForm;
 
+const Input = ({
+  id,
+  label,
+  onChange,
+  value,
+  onTouch,
+  error,
+  onBlur,
+  type,
+}) => {
+  return (
+    <div>
+      <label className="col-form-label col-form-label-md">
+        {label}
+        <ReqFieldIcon />
+      </label>
+      <input
+        id={id}
+        type={type || "text"}
+        className="form-control form-control-sm"
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+      />
+      <ReqFieldMsg error={error} onTouch={onTouch} />
+    </div>
+  );
+};
 /*
 <Select id={currentUser["id"]} configure="false" name="Employee#" />
 */

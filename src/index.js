@@ -5,7 +5,6 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
-import "react-datepicker/dist/react-datepicker.css";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 

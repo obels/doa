@@ -1,25 +1,16 @@
 import React from "react";
 import ReqFieldMsg from "./reqFieldMsg";
+import { useField } from "formik";
 
-const Input = ({
-  onChange,
-  id,
-  value,
-  name,
-  error,
-  onBlur,
-  onTouch,
-  style,
-  labelstyle,
-}) => {
+const Input = ({ label, style, labelstyle, type, ...props }) => {
+  const [value, meta] = useField(props);
+
+  console.log(props);
+
   return (
     <div>
-      <label
-        className="col-form-label col-form-label-md"
-        style={labelstyle}
-        htmlFor={id}
-      >
-        {name}
+      <label className="col-form-label col-form-label-md" style={labelstyle}>
+        {label}
         <i
           className="cog-asterisk"
           style={{ fontSize: 15, color: "darkred" }}
@@ -30,14 +21,12 @@ const Input = ({
       </label>
       <input
         style={style}
-        type="text"
+        type={type || "text"}
         className="form-control form-control-sm"
-        onChange={onChange}
-        value={value}
-        id={id}
-        onBlur={onBlur}
+        {...value}
+        {...props}
       />
-      <ReqFieldMsg error={error} onTouch={onTouch} />
+      <ReqFieldMsg error={meta.error} onTouch={meta.touched} />
     </div>
   );
 };
